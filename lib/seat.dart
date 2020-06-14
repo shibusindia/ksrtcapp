@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'booking.dart';
+// import 'package:ksrtcapp/booking.dart';
 class SEATPAGE extends StatefulWidget{
   @override
   State createState() => new SEATPAGEState();}

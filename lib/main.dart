@@ -1,6 +1,6 @@
 import 'package:ksrtcapp/Loginpage.dart';
 import 'package:ksrtcapp/collapisingbar.dart';
-import 'package:ksrtcapp/home.dart';
+// import 'package:ksrtcapp/home.dart';
 import 'dart:async';
 import 'Flutkart.dart';
 
@@ -8,9 +8,9 @@ import 'tab.dart';
 import 'package:flutter/material.dart';
 import 'navigator.dart';
 import 'theme.dart';
+
 var routes = <String, WidgetBuilder>{
   "/home": (BuildContext context) => MyHomePage()
- 
 };
 
 void main() => runApp(MyApp());
@@ -24,10 +24,11 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
-     routes: routes,
+      routes: routes,
     );
   }
 }
+
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -37,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-   Timer(Duration(seconds: 1), () => MyNavigator.goToHome(context));
+    Timer(Duration(seconds: 1), () => MyNavigator.goToHome(context));
   }
 
   @override
@@ -79,9 +80,8 @@ class _SplashScreenState extends State<SplashScreen> {
                       )
                     ],
                   ),
-                ), 
+                ),
               ),
-
             ],
           )
         ],
@@ -94,25 +94,27 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        elevation: 80.0,
-        backgroundColor: selectedColor,
-        title: Text("                      KSRTC",),
-        leading: IconButton(
-          icon: Icon(Icons.person),
-          onPressed: () => Navigator.push(context, new MaterialPageRoute(
-                              builder: (context) =>new LoginPage(LoginPage))
-      ),
-      ),
-      ),
-      endDrawer:CollapsingNavigationDrawer(),
-      body: Stack(
-        children: <Widget>[
-          Container(color: color,),
-      Tabs(),
-        ],
-      )
-    );
-}
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          elevation: 80.0,
+          backgroundColor: selectedColor,
+          title: Text(
+            "KSRTC",
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () => Navigator.push(context,
+                new MaterialPageRoute(builder: (context) => new LoginPage())),
+          ),
+        ),
+        endDrawer: CollapsingNavigationDrawer(),
+        body: Stack(
+          children: <Widget>[
+            Container(
+              color: color,
+            ),
+            Tabs(),
+          ],
+        ));
+  }
 }
