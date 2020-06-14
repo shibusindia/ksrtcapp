@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "819372126950",
+    "firebase_url": "https://clever-stone-227417.firebaseio.com",
+    "project_id": "clever-stone-227417",
+    "storage_bucket": "clever-stone-227417.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819372126950:android:d5b1c73aebbcb451a18127",
+        "android_client_info": {
+          "package_name": "com.al.ksrtc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819372126950-o1jetg8vf8s16c25eeuqggn53p6c6d0j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwM1fw2Z8vaUSYhTLiPTk4dshkUcld6rQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "819372126950-o1jetg8vf8s16c25eeuqggn53p6c6d0j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
