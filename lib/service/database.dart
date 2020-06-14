@@ -72,7 +72,7 @@ class DatabaseService {
         start: doc.data['Start'],
         stops: doc.data['Stops'],
       );
-    });
+    }).toList();
   }
 
   List<BusStopData> _stopsDataSnapshot(QuerySnapshot snapshot) {
@@ -82,8 +82,8 @@ class DatabaseService {
           stopName: doc.data['Stop-Name'],
           city: doc.data['City'],
           latitude: doc.data['Latitude'],
-          longitude: doc.data['longitude']);
-    });
+          longitude: doc.data['longitude'],);
+    }).toList();
   }
 
   Stream<UserData> get userdata {
@@ -91,10 +91,10 @@ class DatabaseService {
   }
 
   Stream<List<BusData>> get busData {
-    return buses.document().snapshots().map(_busDataSnapshot);
+    return buses.snapshots().map(_busDataSnapshot);
   }
 
   Stream<List<BusStopData>> get stopsData {
-    return busStop.document().snapshots().map(_stopsDataSnapshot);
+    return busStop.snapshots().map(_stopsDataSnapshot);
   }
 }
