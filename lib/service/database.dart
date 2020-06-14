@@ -1,7 +1,6 @@
-import 'dart:html';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ksrtcapp/model/bus.dart';
+import 'package:ksrtcapp/model/bus_stop.dart';
 import 'package:ksrtcapp/model/user.dart';
 
 class DatabaseService {
@@ -75,15 +74,15 @@ class DatabaseService {
       );
     });
   }
-  List<BusStopData> _stopsDataSnapshot(QuerySnapshot snapshot){
-    return snapshot.document.map((doc){
-      return BusStopData(+
-        stopId:doc.data['Stop-Id'],
-        stopName:doc.data['Stop-Name'],
-        city:doc.data['City'],
-        latitude:doc.data['Latitude'],
-        longitude:doc.data['longitude']
-      );
+
+  List<BusStopData> _stopsDataSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc) {
+      return BusStopData(
+          stopId: doc.data['Stop-Id'],
+          stopName: doc.data['Stop-Name'],
+          city: doc.data['City'],
+          latitude: doc.data['Latitude'],
+          longitude: doc.data['longitude']);
     });
   }
 
@@ -91,7 +90,11 @@ class DatabaseService {
     return users.document(uid).snapshots().map(_userDataSnapshot);
   }
 
-  Stream<List<BusData>> get busData{
-    return buses.documents().snapshot().map(_busDataSnapshot);
+  Stream<List<BusData>> get busData {
+    return buses.document().snapshots().map(_busDataSnapshot);
+  }
+
+  Stream<List<BusStopData>> get stopsData {
+    return busStop.document().snapshots().map(_stopsDataSnapshot);
   }
 }
